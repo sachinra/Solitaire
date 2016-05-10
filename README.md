@@ -57,7 +57,7 @@ ______________________________________
         <td>K</td>
     </tr>
     <tr>
-        <td>Random</td>
+        <td>Reference</td>
         <td>A</td>
         <td>B</td>
         <td>C</td>
@@ -120,3 +120,38 @@ The DeckID, is not just about the Card and Suit combination, but also defines th
 The algorithm for DeckID generation is more of a compression algorithm for small strings, whose primary goal is to generate an output string consisting of Printable Characters ie. (Alpha-Numeric). The implementer may choose their favorite algorithm viz, SMAZ or Shoco 
 
 Presently, Solitaire with Dynamic Decks has been designed as a proof of concept, wherein the DeckID has been demarcated by a “-” and sticks out like a sore-thumb, however, implementers may choose to mix the DeckID with the Solitaire Encryption Text.
+
+<table class="tftable" border="1">
+    <tr>
+        <td>Random Deck No</td>
+        <td>4581337</td>
+    </tr>
+    <tr>
+        <td>Random Suit No</td>
+        <td>7</td>
+    </tr>
+	<tr>
+        <td>Before Adding Jokers</td>
+        <td>MXjsPG,17,32,40,2,18,29,47,13,20,37,51,9,23,30,45,1,15,31,42,8,26,33,50,12,22,36,43,6,14,28,44,3,21,39,46,11,25,35,49,4,19,27,41,5,16,34,52,7,24,38,48,10</td>
+    </tr>
+	<tr>
+        <td>Joker A Sum</td>
+        <td>Number Left : 458 ; Sum:17</td>
+    </tr>
+	<tr>
+        <td>Joker B Sum</td>
+        <td>Number Right: 1337; Sum:14</td>
+    </tr>
+	<tr>
+        <td>Joker B Position</td>
+        <td>39</td>
+    </tr>
+	<tr>
+        <td>After Adding Jokers</td>
+        <td>MXjsPG,17,32,40,2,18,29,47,13,20,37,51,9,23,30,45,1,53,15,31,42,8,26,33,50,12,22,36,43,6,14,28,44,3,21,39,46,11,25,54,35,49,4,19,27,41,5,16,34,52,7,24,38,48,10</td>
+    </tr>
+	<tr>
+        <td>Encrypted Text</td>
+        <td>VIUREZMWODHZRFKWZGRUTXJPHMIKVRGTXECA-MXjsPG</td>
+    </tr>
+</table>
