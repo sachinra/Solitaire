@@ -39,3 +39,30 @@ In order to take advantage of Solitaire Cipher and its 54! Combinations, with th
 This particular method would now be dependent on those who are implementing Solitaire Cipher. Moreover, the implementers may choose to randomize the associating tables in case of a breach.
 
 It is also to be noted that, even though this method of Tag-IDs is not fool-proof however, it does provide an edge over the conventional implementation of Solitaire Cipher. 
+
+# DECK-ID GENERATION
+As we all know, every deck has 13 cards belonging to 4 different suits. We begin by breaking up the 13 cards into two different sets of 6 cards and 7 cards and associating every card with a particular Alphabet. The implementer over here may choose their own set of cards to be a part of which group. 
+
+______________________________________
+|Deck    A	2	3	4	5	6	7	8	9	10 J Q K |
+|Random  A	B	C	D	E	F	G	H	I  J K L M |
+______________________________________
+
+First Set : ABCDEF
+Second Set: GHIJKLM
+
+Anagrams, will allow us to get all the unique combinations of the strings and we produce the initial Arrays for both the sets.
+
+The First Set of 6 Alphabets will generate 6! Or 720 unique combinations while the Second Set will generate 7! Or 5040 unique combinations
+
+Moreover the, 4 different suits will give rise to 4! Different combinations and these too can be assigned an Alphabet. 
+
+________________________________________
+|Suite  Clubs Diamonds  Hearts  Spades |
+|       C	    D	        H	      S      |
+|Weight 0     13        26      39     |
+________________________________________
+
+Combinations : 
+"HDSC", "HDCS", "HSDC", "HSCD", "HCDS", "HCSD", "DHSC", "DHCS", "DSHC", "DSCH", "DCHS", "DCSH", 	"SHDC", "SHCD", "SDHC", "SDCH", "SCHD", "SCDH", "CHDS", "CHSD", "CDHS", "CDSH", "CSHD", "CSDH"
+
