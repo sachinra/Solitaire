@@ -26,6 +26,7 @@ In order to generate the cipher text, we shall rely on a table which associates 
 From a holistic point of view, the basic requirement for implementing this is that both the processes ie. Encryption and Decryption processes should be aware of the following 
 
 1: The Deck Combination Order.
+
 2: Passphrase , (If any)
 
 However, when we have to implement this cipher for (non-sensitive) Digital Communications, the paradigm shifts drastically, as the information between the sender and the receiver can be intercepted and the cipher-message can be brute forced, especially when multiple messages with the same passphrase are generated.
@@ -44,11 +45,15 @@ It is also to be noted that, even though this method of Tag-IDs is not fool-proo
 As we all know, every deck has 13 cards belonging to 4 different suits. We begin by breaking up the 13 cards into two different sets of 6 cards and 7 cards and associating every card with a particular Alphabet. The implementer over here may choose their own set of cards to be a part of which group. 
 
 ______________________________________
+
 |Deck    A	2	3	4	5	6	7	8	9	10 J Q K |
+
 |Random  A	B	C	D	E	F	G	H	I  J K L M |
+
 ______________________________________
 
 First Set : ABCDEF
+
 Second Set: GHIJKLM
 
 Anagrams, will allow us to get all the unique combinations of the strings and we produce the initial Arrays for both the sets.
@@ -58,9 +63,13 @@ The First Set of 6 Alphabets will generate 6! Or 720 unique combinations while t
 Moreover the, 4 different suits will give rise to 4! Different combinations and these too can be assigned an Alphabet. 
 
 ________________________________________
+
 |Suite  Clubs Diamonds  Hearts  Spades |
+
 |       C	    D	        H	      S      |
+
 |Weight 0     13        26      39     |
+
 ________________________________________
 
 Combinations : 
