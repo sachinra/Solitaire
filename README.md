@@ -1,13 +1,13 @@
-# Solitaire
+# Solitaire #
 Solitaire Encryption with Dynamic Decks
 
-# BRIEF 
-The Solitaire cryptographic algorithm was designed by Bruce Schneier to allow field agents to communicate securely without having to rely on electronics or having to carry incriminating tools, at the request of Neal Stephenson for use in his novel Cryptonomicon. It was designed to be a manual cryptosystem calculated with an ordinary deck of playing cards. In Cryptonomicon, this algorithm was originally called Pontifex to hide the fact that it involved playing cards.
+<h4> BRIEF </h4>
+<p>The Solitaire cryptographic algorithm was designed by Bruce Schneier to allow field agents to communicate securely without having to rely on electronics or having to carry incriminating tools, at the request of Neal Stephenson for use in his novel Cryptonomicon. It was designed to be a manual cryptosystem calculated with an ordinary deck of playing cards. In Cryptonomicon, this algorithm was originally called Pontifex to hide the fact that it involved playing cards.</p>
 
-#REQUIREMENTS
-A deck of Cards with Two Jokers
+<h4>REQUIREMENTS</h4>
+<p>A deck of Cards with Two Jokers</p>
 
-#THEORY 
+<h4>THEORY</h4>
 A deck of cards provides us with 54! possible combinations of the arrangement of cards in the deck. Using one such deck combination, we move ahead with the KeyStream Generation, which is the heart of the Solitaire Cipher. When implemented with a PassPhrase then prior to generating KeyStream, the cards have to shuffled using the method described for PassPhrase Shuffle.
 
 Since, Solitaire Cipher, is an output-feedback mode stream cipher, the KeyStream Generator will throw out One Card at the end of every KeyStream generation process, and this process is basically shuffling of cards based on the described method. 
