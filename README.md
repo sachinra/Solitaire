@@ -58,10 +58,11 @@ The First Set of 6 Alphabets will generate 6! Or 720 unique combinations while t
 Moreover the, 4 different suits will give rise to 4! Different combinations and these too can be assigned an Alphabet. 
 
 ________________________________________
-
-* Suite  Clubs Diamonds  Hearts  Spades 
-*        C	    D	        H	      S      
-* Weight 0     13        26      39     
+<table class="tftable" border="1">
+<tr><th>Suit</th><th>Clubs</th><th>Diamonds</th><th>Hearts</th><th>Spades</th></tr>
+<tr><td>Abbrevation</td><td>C</td><td>D</td><td>H</td><td>S</td></tr>
+<tr><td>Weight</td><td>0</td><td>13</td><td>26</td><td>39</td></tr>
+</table>
 ________________________________________
 
 * Combinations : "HDSC", "HDCS", …., "CSHD", "CSDH"
