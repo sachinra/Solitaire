@@ -39,10 +39,40 @@ It is also to be noted that, even though this method of Tag-IDs is not fool-proo
 As we all know, every deck has 13 cards belonging to 4 different suits. We begin by breaking up the 13 cards into two different sets of 6 cards and 7 cards and associating every card with a particular Alphabet. The implementer over here may choose their own set of cards to be a part of which group. 
 
 ______________________________________
-
-* |Deck    A	2	3	4	5	6	7	8	9	10 J Q K |
-* |Random  A	B	C	D	E	F	G	H	I  J K L M |
-
+<table class="tftable" border="1">
+    <tr>
+        <td>Deck</td>
+        <td>A</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>J</td>
+        <td>Q</td>
+        <td>K</td>
+    </tr>
+    <tr>
+        <td>Random</td>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+        <td>E</td>
+        <td>F</td>
+        <td>G</td>
+        <td>H</td>
+        <td>I</td>
+        <td>J</td>
+        <td>K</td>
+        <td>L</td>
+        <td>M</td>
+    </tr>
+</table>
 ______________________________________
 
 * First Set : ABCDEF
