@@ -12,11 +12,9 @@ Solitaire Encryption with Dynamic Decks
 <p>Since, Solitaire Cipher, is an output-feedback mode stream cipher, the KeyStream Generator will throw out One Card at the end of every KeyStream generation process, and this process is basically shuffling of cards based on the described method.</p>
 <p>The reason for generating KeyStream is that for every character of the Plaintext ,a unique Keystream Character is generated and upon the completion of this entire process, the number associated with the alphabets of both the Plaintext and the KeyStream are added to generate a new number , and subsequently the character associated with this newly generated Number becomes the Solitaire Cipher Text.</p>
 <p>Let us take a hypothetical example, wherein, a Random Combination of Deck is used which generates the below mentioned KeyStream.</p>
-
-<p>Plain Text 	: THISWORKS	: Length : 9 characters</p>
-<p>Key Stream	: AJUTRNFHD	: Length : 9 characters</p>
-<p>Cipher Text	: URDMOGUSW	: Length : 9 characters</p>
-
+* Plain Text 	: THISWORKS	: Length : 9 characters
+* Key Stream	: AJUTRNFHD	: Length : 9 characters
+* Cipher Text	: URDMOGUSW	: Length : 9 characters
 <p>In order to generate the cipher text, we shall rely on a table which associates the Alphabets to their corresponding number. Ie. A = 1 , B = 2 ….. Y = 25 , Z = 26</p>
 
 <h4>IMPLEMENTATION</h4>
@@ -37,7 +35,7 @@ This particular method would now be dependent on those who are implementing Soli
 
 It is also to be noted that, even though this method of Tag-IDs is not fool-proof however, it does provide an edge over the conventional implementation of Solitaire Cipher. 
 
-# DECK-ID GENERATION
+<h4>DECK-ID GENERATION</h4>
 As we all know, every deck has 13 cards belonging to 4 different suits. We begin by breaking up the 13 cards into two different sets of 6 cards and 7 cards and associating every card with a particular Alphabet. The implementer over here may choose their own set of cards to be a part of which group. 
 
 ______________________________________
@@ -48,17 +46,15 @@ ______________________________________
 
 ______________________________________
 
-First Set : ABCDEF
-
-Second Set: GHIJKLM
+* First Set : ABCDEF
+* Second Set: GHIJKLM
 
 Anagrams, will allow us to get all the unique combinations of the strings and we produce the initial Arrays for both the sets.
 
 The First Set of 6 Alphabets will generate 6! Or 720 unique combinations while the Second Set will generate 7! Or 5040 unique combinations
 
-Set 1: 720 - "ABCDEF", "ABCDFE", .... , "FEDCAB", "FEDCBA"
-
-Set 2: 5040 - "GHIJKLM", "GHIJKML",  …. , "MLKJIGH", "MLKJIHG"
+* Set 1: 720 - "ABCDEF", "ABCDFE", .... , "FEDCAB", "FEDCBA"
+* Set 2: 5040 - "GHIJKLM", "GHIJKML",  …. , "MLKJIGH", "MLKJIHG"
 
 Moreover the, 4 different suits will give rise to 4! Different combinations and these too can be assigned an Alphabet. 
 
@@ -72,7 +68,7 @@ ________________________________________
 
 ________________________________________
 
-Combinations : "HDSC", "HDCS", …., "CSHD", "CSDH"
+* Combinations : "HDSC", "HDCS", …., "CSHD", "CSDH"
 
 Using these and some more additional reference lookup tables we can generate a DeckID of 6 Characters .
 
@@ -81,4 +77,3 @@ The DeckID, is not just about the Card and Suit combination, but also defines th
 The algorithm for DeckID generation is more of a compression algorithm for small strings, whose primary goal is to generate an output string consisting of Printable Characters ie. (Alpha-Numeric). The implementer may choose their favorite algorithm viz, SMAZ or Shoco 
 
 Presently, Solitaire with Dynamic Decks has been designed as a proof of concept, wherein the DeckID has been demarcated by a “-” and sticks out like a sore-thumb, however, implementers may choose to mix the DeckID with the Solitaire Encryption Text.
-
