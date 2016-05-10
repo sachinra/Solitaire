@@ -17,7 +17,9 @@ The reason for generating KeyStream is that for every character of the Plaintext
 Let us take a hypothetical example, wherein, a Random Combination of Deck is used which generates the below mentioned KeyStream.
 
 Plain Text 	: THISWORKS	: Length : 9 characters
+
 Key Stream	: AJUTRNFHD	: Length : 9 characters
+
 Cipher Text	: URDMOGUSW	: Length : 9 characters
 
 In order to generate the cipher text, we shall rely on a table which associates the Alphabets to their corresponding number. Ie. A = 1 , B = 2 ….. Y = 25 , Z = 26
@@ -60,6 +62,10 @@ Anagrams, will allow us to get all the unique combinations of the strings and we
 
 The First Set of 6 Alphabets will generate 6! Or 720 unique combinations while the Second Set will generate 7! Or 5040 unique combinations
 
+Set 1: 720 - "ABCDEF", "ABCDFE", .... , "FEDCAB", "FEDCBA"
+
+Set 2: 5040 - "GHIJKLM", "GHIJKML",  …. , "MLKJIGH", "MLKJIHG"
+
 Moreover the, 4 different suits will give rise to 4! Different combinations and these too can be assigned an Alphabet. 
 
 ________________________________________
@@ -72,6 +78,13 @@ ________________________________________
 
 ________________________________________
 
-Combinations : 
-"HDSC", "HDCS", "HSDC", "HSCD", "HCDS", "HCSD", "DHSC", "DHCS", "DSHC", "DSCH", "DCHS", "DCSH", 	"SHDC", "SHCD", "SDHC", "SDCH", "SCHD", "SCDH", "CHDS", "CHSD", "CDHS", "CDSH", "CSHD", "CSDH"
+Combinations : "HDSC", "HDCS", …., "CSHD", "CSDH"
+
+Using these and some more additional reference lookup tables we can generate a DeckID of 6 Characters .
+
+The DeckID, is not just about the Card and Suit combination, but also defines the position of the Jokers. 
+
+The algorithm for DeckID generation is more of a compression algorithm for small strings, whose primary goal is to generate an output string consisting of Printable Characters ie. (Alpha-Numeric). The implementer may choose their favorite algorithm viz, SMAZ or Shoco 
+
+Presently, Solitaire with Dynamic Decks has been designed as a proof of concept, wherein the DeckID has been demarcated by a “-” and sticks out like a sore-thumb, however, implementers may choose to mix the DeckID with the Solitaire Encryption Text.
 
