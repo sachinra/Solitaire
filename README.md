@@ -29,7 +29,7 @@ The simple reason being, the deck combination never changes, as changing the dec
 
 Due to this we now have two parameters, which are deemed crucial for a successful implementation, and have to be known to both the parties. 
 
-In order to take advantage of Solitaire Cipher and its 54! Combinations, with the additional PassPhrase and reducing the overheads of sending the entire deck of cards to the recipient, we shall instead rely on associating ID Tags with a subset of deck combinations ie. 6! * 7!. 
+In order to take advantage of Solitaire Cipher and its 54! Combinations, with the additional PassPhrase and reducing the overheads of sending the entire deck of cards to the recipient, we shall instead rely on associating ID Tags with a subset of deck combinations ie. 6! * 7! * 4! . 
 
 This particular method would now be dependent on those who are implementing Solitaire Cipher. Moreover, the implementers may choose to randomize the associating tables in case of a breach.
 
@@ -40,9 +40,8 @@ As we all know, every deck has 13 cards belonging to 4 different suits. We begin
 
 ______________________________________
 
-|Deck    A	2	3	4	5	6	7	8	9	10 J Q K |
-
-|Random  A	B	C	D	E	F	G	H	I  J K L M |
+* |Deck    A	2	3	4	5	6	7	8	9	10 J Q K |
+* |Random  A	B	C	D	E	F	G	H	I  J K L M |
 
 ______________________________________
 
@@ -60,12 +59,9 @@ Moreover the, 4 different suits will give rise to 4! Different combinations and 
 
 ________________________________________
 
-|Suite  Clubs Diamonds  Hearts  Spades |
-
-|       C	    D	        H	      S      |
-
-|Weight 0     13        26      39     |
-
+* Suite  Clubs Diamonds  Hearts  Spades 
+*        C	    D	        H	      S      
+* Weight 0     13        26      39     
 ________________________________________
 
 * Combinations : "HDSC", "HDCS", …., "CSHD", "CSDH"
