@@ -1,35 +1,29 @@
 # Solitaire #
 Solitaire Encryption with Dynamic Decks
 
-<h4> BRIEF </h4>
+<h4>BRIEF</h4>
 <p>The Solitaire cryptographic algorithm was designed by Bruce Schneier to allow field agents to communicate securely without having to rely on electronics or having to carry incriminating tools, at the request of Neal Stephenson for use in his novel Cryptonomicon. It was designed to be a manual cryptosystem calculated with an ordinary deck of playing cards. In Cryptonomicon, this algorithm was originally called Pontifex to hide the fact that it involved playing cards.</p>
 
 <h4>REQUIREMENTS</h4>
 <p>A deck of Cards with Two Jokers</p>
 
 <h4>THEORY</h4>
-A deck of cards provides us with 54! possible combinations of the arrangement of cards in the deck. Using one such deck combination, we move ahead with the KeyStream Generation, which is the heart of the Solitaire Cipher. When implemented with a PassPhrase then prior to generating KeyStream, the cards have to shuffled using the method described for PassPhrase Shuffle.
+<p>A deck of cards provides us with 54! possible combinations of the arrangement of cards in the deck. Using one such deck combination, we move ahead with the KeyStream Generation, which is the heart of the Solitaire Cipher. When implemented with a PassPhrase then prior to generating KeyStream, the cards have to shuffled using the method described for PassPhrase Shuffle.</p>
+<p>Since, Solitaire Cipher, is an output-feedback mode stream cipher, the KeyStream Generator will throw out One Card at the end of every KeyStream generation process, and this process is basically shuffling of cards based on the described method.</p>
+<p>The reason for generating KeyStream is that for every character of the Plaintext ,a unique Keystream Character is generated and upon the completion of this entire process, the number associated with the alphabets of both the Plaintext and the KeyStream are added to generate a new number , and subsequently the character associated with this newly generated Number becomes the Solitaire Cipher Text.</p>
+<p>Let us take a hypothetical example, wherein, a Random Combination of Deck is used which generates the below mentioned KeyStream.</p>
 
-Since, Solitaire Cipher, is an output-feedback mode stream cipher, the KeyStream Generator will throw out One Card at the end of every KeyStream generation process, and this process is basically shuffling of cards based on the described method. 
+<p>Plain Text 	: THISWORKS	: Length : 9 characters</p>
+<p>Key Stream	: AJUTRNFHD	: Length : 9 characters</p>
+<p>Cipher Text	: URDMOGUSW	: Length : 9 characters</p>
 
-The reason for generating KeyStream is that for every character of the Plaintext ,a unique Keystream Character is generated and upon the completion of this entire process, the number associated with the alphabets of both the Plaintext and the KeyStream are added to generate a new number , and subsequently the character associated with this newly generated Number becomes the Solitaire Cipher Text.
+<p>In order to generate the cipher text, we shall rely on a table which associates the Alphabets to their corresponding number. Ie. A = 1 , B = 2 ….. Y = 25 , Z = 26</p>
 
-Let us take a hypothetical example, wherein, a Random Combination of Deck is used which generates the below mentioned KeyStream.
-
-Plain Text 	: THISWORKS	: Length : 9 characters
-
-Key Stream	: AJUTRNFHD	: Length : 9 characters
-
-Cipher Text	: URDMOGUSW	: Length : 9 characters
-
-In order to generate the cipher text, we shall rely on a table which associates the Alphabets to their corresponding number. Ie. A = 1 , B = 2 ….. Y = 25 , Z = 26
-
-# IMPLEMENTATION
+<h4>IMPLEMENTATION</h4>
 From a holistic point of view, the basic requirement for implementing this is that both the processes ie. Encryption and Decryption processes should be aware of the following 
 
-1: The Deck Combination Order.
-
-2: Passphrase , (If any)
+* The Deck Combination Order.
+* Passphrase , (If any)
 
 However, when we have to implement this cipher for (non-sensitive) Digital Communications, the paradigm shifts drastically, as the information between the sender and the receiver can be intercepted and the cipher-message can be brute forced, especially when multiple messages with the same passphrase are generated.
 
