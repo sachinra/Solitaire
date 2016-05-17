@@ -1,0 +1,32 @@
+doctype html
+html
+	head
+		title= title
+	body
+		// Latest compiled and minified CSS
+		link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+		// jQuery library
+		// script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+		// Latest compiled JavaScript
+		script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+		block content
+		html
+			body
+				center
+					legend Solitaire Encryption with Dynamic Decks
+				.container
+				p
+				center
+					table.table.table-striped(style='width: 50%;')
+						tbody
+							tr
+								td #{data4} Text
+								td #{data}
+							tr
+								td Pass Phrase
+								td #{data1}
+							tr
+								td #{data3} String
+								td #{data2}
+				center
+					a(href='/') Back
