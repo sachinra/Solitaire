@@ -1,0 +1,46 @@
+doctype html
+html
+  body
+    // Latest compiled and minified CSS
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    // jQuery library
+    // script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+    // Latest compiled JavaScript
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    form.form-horizontal(method='POST', action='encdec', enctype='application/x-www-form-urlencoded')
+      fieldset
+        // Form Name
+        center
+          legend Solitaire Encryption with Dynamic Decks
+        // Multiple Radios
+        .form-group
+          label.col-md-4.control-label(for='radios') Process
+          .col-md-4
+            .radio
+              label(for='radios-0')
+                input#radios-0(name='radios', value='1', checked='checked', type='radio')
+                |       Encrypt
+            .radio
+              label(for='radios-1')
+                input#radios-1(name='radios', value='2', type='radio')
+                |       Decrypt
+        // Text input
+        .form-group
+          label.col-md-4.control-label(for='textinput') Text to Encrypt/Decrypt
+          .col-md-4
+            input#textinput.form-control.input-md(name='textinput', placeholder='Text To Encrypt or Decrypt', type='text')
+            span.help-block Encrypt: Spaces and Special characters will be stripped
+        // Password input
+        .form-group
+          label.col-md-4.control-label(for='passwordinput') Pass Phrase
+          .col-md-4
+            input#passwordinput.form-control.input-md(name='passwordinput', placeholder='PassPhrase', type='password')
+            span.help-block Spaces and Special characters will be stripped
+        // Button
+        .form-group
+          label.col-md-4.control-label(for='singlebutton')
+          .col-md-4
+            // button id="singlebutton" name="singlebutton" class="btn btn-primary" onClick="document.forms[0].submit();">Proceed</button
+            input#singlebutton.btn.btn-primary(type='submit', name='singlebutton', value='Proceed')
+   center
+    a(href='http://j.mp/SolitaireRepo', target='_blank') Github Repository
