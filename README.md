@@ -132,4 +132,4 @@ Presently, Solitaire with Dynamic Decks has been designed as a proof of concept,
 * Encrypted Text: VIUREZMWODHZRFKWZGRUTXJPHMIKVRGTXECA-MXjsPG
 
 <h4>Proof of Concept</h4>
- <a href="http://j.mp/SolitaireEnc">Visit the Proof of Concept Site for Solitaire</a> 
+ <a href="http://j.mp/SolitaireEnc" target="_blank">Visit the Proof of Concept Site for Solitaire</a> 
