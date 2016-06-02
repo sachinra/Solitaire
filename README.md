@@ -130,3 +130,6 @@ Presently, Solitaire with Dynamic Decks has been designed as a proof of concept,
 * Joker B Position:39
 * After Adding Jokers: MXjsPG,17,32,40,2,18,29,47,13,20,37,51,9,23,30,45,1,53,15,31,42,8,26,33,50,12,22,36,43,6,14,28,44,3,21,39,46,11,25,54,35,49,4,19,27,41,5,16,34,52,7,24,38,48,10
 * Encrypted Text: VIUREZMWODHZRFKWZGRUTXJPHMIKVRGTXECA-MXjsPG
+
+<h4>Proof of Concept</h4>
+ <a href="http://j.mp/SolitaireEnc">Visit the Proof of Concept Site for Solitaire</a> 
