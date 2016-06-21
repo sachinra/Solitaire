@@ -691,14 +691,17 @@ function Solitaire_Encrypt(aKeyStream, sPlainText){
 
 function Solitaire_Encrypt_Cipher(passPhrase,plainText,number,nDeckNo){
 	var Deck , DeckID;
+	var Initial_Deck,PassPhrase_Deck;
 	passPhrase = passPhrase.toUpperCase();
 	plainText = plainText.toUpperCase();
 	Deck = generateDeck(number.toString(),nDeckNo.toString());
+	Initial_Deck = Deck;
 	Deck = passPhrase_Shuffle(Deck,passPhrase);
+	PassPhrase_Deck = Deck;
 	aKeyStream = keyStreamGenerate(Deck, plainText.length);
 	sSolitaire_Chipher = Solitaire_Encrypt(aKeyStream,plainText);
 	DeckID = Deck[0];
-	return sSolitaire_Chipher+"-"+DeckID 
+	return JSON.parse('{"cipher": "' + sSolitaire_Chipher +"-" + DeckID + '","Initial_Deck":"'+ Initial_Deck +'","PassPhrase_Deck":"'+ PassPhrase_Deck +'","KeyStream":"'+ aKeyStream +'" }'); 
 }
 
 function checkParity(number){
@@ -771,6 +774,7 @@ function Solitaire_Decrypt(aKeyStream, sSolitaire_Chipher){
 function Solitaire_Decrypt_Cipher(sSolitaire_Chipher, passPhrase){
 	var csString, number, sPlainText;
 	var Deck , aKeyStream;
+	var Initial_Deck,PassPhrase_Deck;
 
 	var encryptedString = sSolitaire_Chipher.substring(0,sSolitaire_Chipher.length - 7);
 	var nDeckNo = sSolitaire_Chipher.substring(sSolitaire_Chipher.length - 1).charCodeAt() - 64;
@@ -783,11 +787,15 @@ function Solitaire_Decrypt_Cipher(sSolitaire_Chipher, passPhrase){
 	}
 
 	Deck = generateDeck(number.toString(),nDeckNo.toString());
+	Initial_Deck = Deck;
 	Deck = passPhrase_Shuffle(Deck,passPhrase.toUpperCase());
+	PassPhrase_Deck = Deck;
 	aKeyStream = keyStreamGenerate(Deck, encryptedString.length);
 	sPlainText = Solitaire_Decrypt(aKeyStream, encryptedString);
 
-	return sPlainText;
+	return JSON.parse('{"plaintext": "' + sPlainText + '","Initial_Deck":"'+ Initial_Deck +'","PassPhrase_Deck":"'+ PassPhrase_Deck +'","KeyStream":"'+ aKeyStream +'" }');
+	
+	//return sPlainText;
 }
 
 function getRandomizer(bottom, top) {
@@ -812,7 +820,7 @@ exports.encdec = function(req, res){
 		var content1 = req.body.textinput.replace(/[^a-zA-Z]+/gi, "").toUpperCase();
 		if (content1.length > 0 && content2.length > 0 ){
 			var content3 = Solitaire_Encrypt_Cipher(content2,content1,ranNumber,ranDeckNo);
-			res.render('encdec', { title: 'encdec' , data:content1 , data1: content2 ,data2:content3, data3: 'Encrypted', data4:'Plain-Text' });	
+			res.render('encdec', { title: 'encdec' , data:content1 , data1: content2 ,data2:content3.cipher, data3: 'Encrypted', data4:'Plain', data5: content3.PassPhrase_Deck , data6 : content3.Initial_Deck , data7 : content3.KeyStream});	
 		} else {
 			res.render('index', { title: 'Encrypt Decrypt' });
 		}
@@ -821,7 +829,7 @@ exports.encdec = function(req, res){
 		var content1 = req.body.textinput.replace(/[^a-zA-Z\-]+/gi, "");
 		if (content1.length > 0 && content2.length > 0 ){
 			var content3 = Solitaire_Decrypt_Cipher(content1, content2);
-			res.render('encdec', { title: 'encdec' , data:content1 , data1: content2 ,data2:content3, data3: 'Decrypted', data4:'Encrypted' });
+			res.render('encdec', { title: 'encdec' , data:content1 , data1: content2 ,data2:content3.plaintext, data3: 'Decrypted', data4:'Encrypted', data5: content3.PassPhrase_Deck , data6 : content3.Initial_Deck , data7 : content3.KeyStream});
 		} else {
 			res.render('index', { title: 'Encrypt Decrypt' });
 		}
