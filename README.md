@@ -12,9 +12,12 @@ Solitaire Encryption with Dynamic Decks
 <p>Since, Solitaire Cipher, is an output-feedback mode stream cipher, the KeyStream Generator will throw out One Card at the end of every KeyStream generation process, and this process is basically shuffling of cards based on the described method.</p>
 <p>The reason for generating KeyStream is that for every character of the Plaintext ,a unique Keystream Character is generated and upon the completion of this entire process, the number associated with the alphabets of both the Plaintext and the KeyStream are added to generate a new number , and subsequently the character associated with this newly generated Number becomes the Solitaire Cipher Text.</p>
 <p>Let us take a hypothetical example, wherein, a Random Combination of Deck is used which generates the below mentioned KeyStream.</p>
-* Plain Text 	: THISWORKS	: Length : 9 characters
-* Key Stream	: AJUTRNFHD	: Length : 9 characters
-* Cipher Text	: URDMOGUSW	: Length : 9 characters
+
+Plain Text | THISWORKS
+:--- | :---: 
+Key Stream | AJUTRNFHD
+Cipher Text | URDMOGUSW
+
 <p>In order to generate the cipher text, we shall rely on a table which associates the Alphabets to their corresponding number. Ie. A = 1 , B = 2 ….. Y = 25 , Z = 26</p>
 
 <h4>IMPLEMENTATION</h4>
@@ -39,56 +42,10 @@ It is also to be noted that, even though this method of Tag-IDs is not fool-proo
 As we all know, every deck has 13 cards belonging to 4 different suits. We begin by breaking up the 13 cards into two different sets of 6 cards and 7 cards and associating every card with a particular Alphabet. The implementer over here may choose their own set of cards to be a part of which group. 
 
 ______________________________________
-<table class="tftable" border="1">
-    <tr>
-        <td>Deck</td>
-        <td>A</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>10</td>
-        <td>J</td>
-        <td>Q</td>
-        <td>K</td>
-    </tr>
-    <tr>
-        <td>Reference</td>
-        <td>A</td>
-        <td>B</td>
-        <td>C</td>
-        <td>D</td>
-        <td>E</td>
-        <td>F</td>
-        <td>G</td>
-        <td>H</td>
-        <td>I</td>
-        <td>J</td>
-        <td>K</td>
-        <td>L</td>
-        <td>M</td>
-    </tr>
-    <tr>
-        <td>Index</td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-    </tr>
-</table>
+Deck | A | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | J | Q | K
+:--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+Reference | A | B | C | D | E | F | G | H | I | J | K | L | M
+Index | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13
 ______________________________________
 
 * First Set : ABCDEF
@@ -103,15 +60,13 @@ The First Set of 6 Alphabets will generate 6! Or 720 unique combinations while t
 
 Moreover the, 4 different suits will give rise to 4! Different combinations and these too can be assigned an Alphabet. 
 
-________________________________________
-<table class="tftable" border="1">
-<tr><th>Suit</th><th>Clubs</th><th>Diamonds</th><th>Hearts</th><th>Spades</th></tr>
-<tr><td>Abbrevation</td><td>C</td><td>D</td><td>H</td><td>S</td></tr>
-<tr><td>Weight</td><td>0</td><td>13</td><td>26</td><td>39</td></tr>
-</table>
-________________________________________
+Suit | Clubs | Diamonds | Hearts | Spades
+:--- | :---: | :---: | :---: | :---:
+Abbrevation | C | D | H | S
+Weight | 0 | 13 | 26 | 39
 
-* Combinations : "HDSC", "HDCS", …., "CSHD", "CSDH"
+Combinations | "HDSC" | "HDCS" | ... | "CSHD" | "CSDH"
+:--- | :---: | :---: | :---: | :---: | :---: | :---:
 
 Using these and some more additional reference lookup tables we can generate a DeckID of 6 Characters .
 
